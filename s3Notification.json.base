@@ -1,0 +1,11 @@
+{
+  "LambdaFunctionConfigurations": [
+    {
+      "Id": "fen9liObjectCreate",
+      "LambdaFunctionArn": "lambdafunctionarn",
+      "Events": [
+        "s3:ObjectCreated:*"
+      ]
+    }
+  ]
+}
