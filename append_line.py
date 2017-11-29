@@ -21,8 +21,8 @@ def append_line_handler(event, context):
         bucket = record['s3']['bucket']['name']
         key = record['s3']['object']['key'] 
         download_path = '/tmp/{}{}'.format(uuid.uuid4(), key)
-        upload_path = '/tmp/processed-{}'.format(key)
+        upload_path = '/tmp/out-{}'.format(key)
         
         s3_client.download_file(bucket, key, download_path)
         append_line(download_path, upload_path)
-        s3_client.upload_file(upload_path, '{}processed'.format(bucket), key)
+        s3_client.upload_file(upload_path, '{}out'.format(bucket), key)
