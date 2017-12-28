@@ -13,16 +13,6 @@ class LambdaFunctionTest(unittest.TestCase):
       FNAME = HOME + '/lambda/lambda_conf.py'
       self.assertTrue(os.path.exists(FNAME))
 
-  # Uli wants to create aws s3 bucket in a region
-  # He configured 's3_bucket' & 'region' 
-  # in '$HOME/lambda/lambda_conf.py'
-  def test_aws_s3_bucket_exists(self):
-      import lambda_conf
-
-      s3 = boto3.resource('s3')
-      check = s3.Bucket(lambda_conf.s3_bucket) in s3.buckets.all()
-      self.assertTrue(check)
-
       self.fail('Finish the test!')
 
 if __name__ == '__main__':
