@@ -28,11 +28,11 @@ Setup a linux host as management/dev host. The linux host can be an on-premise o
 (dev36) [fli@python73 lambda]$ tree
 .
 ├── function_tests.py
-└── lambda.conf
+├── lambda_conf.py
+└── README.md
 
-0 directories, 2 files
+0 directories, 3 files
 (dev36) [fli@python73 lambda]$
-
 ```
 
 ### Configure lambda.conf
@@ -41,7 +41,3 @@ Setup a linux host as management/dev host. The linux host can be an on-premise o
 2. s3BucketName - define this bucket name as per your favour.
 3. serviceRoleName - it is recommended that you keep it as is.
 4. lambdaFunctionName - define your Lambda function name.
-
-
-
-
