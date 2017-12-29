@@ -27,20 +27,24 @@ Setup a linux host as management/dev host. The linux host can be an on-premise o
 ```sh
 (dev36) [fli@python73 lambda]$ tree
 .
+├── AWSLambdaExecutionRole-Trust.json
 ├── function_tests.py
 ├── lambda_conf.py
+├── manipulate_aws_role.py
 ├── manipulate_s3_bucket.py
 ├── README.md
+├── test_create_aws_role.py
 ├── test_create_s3_bucket.py
 └── test_delete_s3_bucket.py
 
-0 directories, 6 files
+0 directory, 9 files
 (dev36) [fli@python73 lambda]$
 ```
 
-### Configure lambda.conf
+### Configure lambda_conf.py
 
-1. region - unless you want to create in different region, dont change this. The current working region will be picked up automatically.
-2. s3BucketName - define this bucket name as per your favour.
-3. serviceRoleName - it is recommended that you keep it as is.
-4. lambdaFunctionName - define your Lambda function name.
+1. s3_bucket - define this bucket name as per your favour.
+1. region - configure the region in which you want to create Lambda function.
+3. role_name - it is recommended that you keep it as is.
+4. assume_role_policy_document - it is the role trust policy json document.
+5. lambdaFunctionName - define your Lambda function name.
