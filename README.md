@@ -34,7 +34,7 @@ Setup a linux host as management/dev host. The linux host can be an on-premise o
 ├── test_create_s3_bucket.py
 └── test_delete_s3_bucket.py
 
-0 directory, 6 files
+0 directories, 6 files
 (dev36) [fli@python73 lambda]$
 ```
 
