@@ -1,4 +1,3 @@
-import boto3
 import unittest
 import manipulate_s3_bucket
 import lambda_conf
@@ -13,14 +12,8 @@ class LambdaFunctionTest(unittest.TestCase):
       # He tries to create the bucket
       manipulate_s3_bucket.create_bucket(lambda_conf.s3_bucket,lambda_conf.region)
 
-      # Test if the bucket exists.
-      # This test will print nothing but OK if the bucket is created successfully. 
-      # This test will print 'BucketAlreadyOwnedByYou' if the bucket
-      # already exists and is owned by you. 
-
-      s3 = boto3.resource('s3')
-      check = s3.Bucket(lambda_conf.s3_bucket) in s3.buckets.all()
-      self.assertTrue(check)
+      # He confirms the bucket exists.
+      self.assertTrue(manipulate_s3_bucket.bucket_exists(lambda_conf.s3_bucket))
 
 if __name__ == '__main__':
     unittest.main()

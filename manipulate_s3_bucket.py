@@ -1,13 +1,32 @@
-import boto3
+import boto3, botocore
+
+def bucket_exists(bucket_name):
+
+    s3 = boto3.resource('s3')
+
+    try:
+        s3.meta.client.head_bucket(Bucket=bucket_name)
+        # print("BucketAlreadyExists")
+        return True
+    except botocore.exceptions.ClientError as e:
+        # If a client error is thrown, then check that it was a 404 error.
+        # If it was a 404 error, then the bucket does not exist.
+        error_code = int(e.response['Error']['Code'])
+        if error_code == 403:
+            # print("PrivateBucketForbiddenAccess")
+            return True
+        elif error_code == 404:
+            # print("BucketNotExist")
+            return False
 
 def create_bucket(bucket_name,region):
 
     # Create a bucket. 
     s3 = boto3.resource('s3')
 
-    # Check if the bucket has been created 
-    if(s3.Bucket(bucket_name) in s3.buckets.all()):
-        print('BucketAlreadyOwnedByYou')
+    # Check if the bucket exists 
+    if(bucket_exists(bucket_name)):
+        print('BucketAlreadyExists')
     else:
         # Try to create new bucket
         try:

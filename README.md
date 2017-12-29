@@ -1,6 +1,6 @@
 # Create AWS lambda Function in Agile Way
 
-AWS Lambda is a serverless compute service that runs code in response to events and automatically manages the underlying compute resources. This project demos the agile way to create a lambda function. 
+AWS Lambda is a serverless compute service that runs code in response to events and automatically manages the underlying compute resources. This project demos how to create a lambda function in an agile way. 
 
 ## AWS resources / services consumed / used in this project
 * Lambda
@@ -15,7 +15,7 @@ AWS Lambda is a serverless compute service that runs code in response to events 
 Setup a linux host as management/dev host. The linux host can be an on-premise one or an aws ec2 instance; Can be a physical one or virtual.
 
 * Install / configure AWS cli
-* Install python 3.6, pip & boto
+* Install python 3.6, pip & boto3
 * Install git
 
 ### Set up
@@ -29,11 +29,12 @@ Setup a linux host as management/dev host. The linux host can be an on-premise o
 .
 ├── function_tests.py
 ├── lambda_conf.py
-├── main.py
 ├── manipulate_s3_bucket.py
-└── README.md
+├── README.md
+├── test_create_s3_bucket.py
+└── test_delete_s3_bucket.py
 
-0 directory, 5 files
+0 directory, 6 files
 (dev36) [fli@python73 lambda]$
 ```
 
