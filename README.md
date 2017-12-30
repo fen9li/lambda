@@ -35,9 +35,10 @@ Setup a linux host as management/dev host. The linux host can be an on-premise o
 ├── README.md
 ├── test_create_aws_role.py
 ├── test_create_s3_bucket.py
+├── test_delete_aws_role.py
 └── test_delete_s3_bucket.py
 
-0 directory, 9 files
+0 directory, 10 files
 (dev36) [fli@python73 lambda]$
 ```
 
@@ -48,4 +49,7 @@ Setup a linux host as management/dev host. The linux host can be an on-premise o
 3. role_name - it is recommended that you keep it as is.
 4. assume_role_policy_document - it is the role trust policy json document.
 5. attach_role_policy_arn - it is the role policy which needs to attach to the role.
-6. lambdaFunctionName - define your Lambda function name.
+6. detach_role_policy_arn - it is the role policy which needs to detach from the role.
+7. lambdaFunctionName - define your Lambda function name.
+
+### An example lambda_conf.py

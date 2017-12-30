@@ -38,6 +38,24 @@ def create_role(role_name,assume_role_policy_document):
                    AssumeRolePolicyDocument=policy
                )
 
+# to delete a role
+# Uli defines the 'role_name' & 'detach_role_policy_arn'
+# in '$HOME/lambda/lambda_conf.py'
+def delete_role(role_name):
+
+    client = boto3.client('iam')
+
+    # Check if the role exists
+    if (role_exists(role_name)):
+        response = client.delete_role(
+            RoleName=role_name
+        )
+        print('Delete role successfully.')
+        return True
+    else:
+        print('RoleNotExists') 
+        return False
+
 # to attach role policy to a role
 # Uli defines the 'role_name' & 'attach_role_policy_arn'
 # in '$HOME/lambda/lambda_conf.py'
@@ -57,3 +75,30 @@ def attach_role_policy(role_name,attach_role_policy_arn):
         print(error)
         return False
 
+# to detach role policy 
+# Uli defines the 'role_name' & 'detach_role_policy_arn'
+# in '$HOME/lambda/lambda_conf.py'
+def detach_role_policy(role_name,detach_role_policy_arn):
+
+    client = boto3.client('iam')
+
+    # Try detach  role policy
+    try:
+        client.detach_role_policy(
+          PolicyArn=detach_role_policy_arn,
+          RoleName=role_name
+        )
+        print('Detached role policy successfully.')
+        return True
+    except Exception as error:
+        print(error)
+        return False
+
+# to test if a policy has attached to a role
+# Uli defines the 'role_name' & 'policy_arn'
+# in '$HOME/lambda/lambda_conf.py'
+def test_role_policy(role_name,policy_arn):
+
+    client = boto3.client('iam')
+    policies = client.list_attached_role_policies(RoleName=role_name)
+    return(policies['AttachedPolicies'][0]['PolicyArn'] == policy_arn)
