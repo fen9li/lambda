@@ -47,4 +47,5 @@ Setup a linux host as management/dev host. The linux host can be an on-premise o
 1. region - configure the region in which you want to create Lambda function.
 3. role_name - it is recommended that you keep it as is.
 4. assume_role_policy_document - it is the role trust policy json document.
-5. lambdaFunctionName - define your Lambda function name.
+5. attach_role_policy_arn - it is the role policy which needs to attach to the role.
+6. lambdaFunctionName - define your Lambda function name.

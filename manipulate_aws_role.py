@@ -37,3 +37,23 @@ def create_role(role_name,assume_role_policy_document):
                    RoleName=role_name,
                    AssumeRolePolicyDocument=policy
                )
+
+# to attach role policy to a role
+# Uli defines the 'role_name' & 'attach_role_policy_arn'
+# in '$HOME/lambda/lambda_conf.py'
+def attach_role_policy(role_name,attach_role_policy_arn):
+
+    client = boto3.client('iam')
+
+    # Try attach  role policy
+    try:
+        client.attach_role_policy(
+          PolicyArn=attach_role_policy_arn,
+          RoleName=role_name
+        )
+        print('Attached role policy successfully.')
+        return True
+    except Exception as error:
+        print(error)
+        return False
+
