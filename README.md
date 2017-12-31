@@ -28,6 +28,10 @@ Setup a linux host as management/dev host. The linux host can be an on-premise o
 (dev36) [fli@python73 lambda]$ tree
 .
 ├── AWSLambdaExecutionRole-Trust.json
+├── create_aws_role.py
+├── create_s3_bucket_pair.py
+├── delete_aws_role.py
+├── delete_s3_bucket_pair.py
 ├── function_tests.py
 ├── lambda_conf.py
 ├── manipulate_aws_role.py
@@ -38,7 +42,7 @@ Setup a linux host as management/dev host. The linux host can be an on-premise o
 ├── test_delete_aws_role.py
 └── test_delete_s3_bucket.py
 
-0 directory, 10 files
+0 directory, 14 files
 (dev36) [fli@python73 lambda]$
 ```
 

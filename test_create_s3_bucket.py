@@ -9,11 +9,15 @@ class LambdaFunctionTest(unittest.TestCase):
   # in '$HOME/lambda/lambda_conf.py'
 
   def test_creating_aws_s3_bucket(self):
-      # He tries to create the bucket
-      manipulate_s3_bucket.create_bucket(lambda_conf.s3_bucket,lambda_conf.region)
 
-      # He confirms the bucket exists.
-      self.assertTrue(manipulate_s3_bucket.bucket_exists(lambda_conf.s3_bucket))
+      # get bucket_in name
+      bucket_in=lambda_conf.s3_bucket
+      # create bucket_out name
+      bucket_out=bucket_in + 'out'
+
+      # He confirms the bucket pair exist.
+      self.assertTrue(manipulate_s3_bucket.bucket_exists(bucket_in))
+      self.assertTrue(manipulate_s3_bucket.bucket_exists(bucket_out))
 
 if __name__ == '__main__':
     unittest.main()
